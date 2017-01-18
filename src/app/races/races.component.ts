@@ -23,7 +23,11 @@ export class RacesComponent implements OnInit {
 
   ngOnInit() {
     // Initialize hardcoded values
-    this.races = this.raceService.list();
+    const observableList = this.raceService.list();
+    observableList.subscribe(
+       raceList => this.races = raceList,
+       error => console.log(error)
+       );
   }
 
 }
