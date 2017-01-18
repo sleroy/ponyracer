@@ -13,7 +13,6 @@ export class RaceService {
 
   constructor(http: Http) {
     this.http = http;
-
   }
 
   /** Returns a list of services */
