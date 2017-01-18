@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
 
   /** Collapse toggle button  */
   toggleNavbar() {
-    console.log("Click on button");
+    console.log('Click on button');
     this.navbarCollapsed = !this.navbarCollapsed;
   }
 
