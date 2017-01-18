@@ -12,7 +12,9 @@ export class RaceComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
+    console.log('Race ' + JSON.stringify(this.raceModel));
   }
 
 }

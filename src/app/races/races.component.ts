@@ -1,4 +1,4 @@
-import { raceStatic } from 'rxjs/operator/race';
+
 import { Component, Injectable, OnInit } from '@angular/core';
 import { RaceModel } from '../models/race.model';
 import { RaceService } from '../race.service';
