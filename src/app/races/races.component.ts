@@ -1,26 +1,30 @@
 import { raceStatic } from 'rxjs/operator/race';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { RaceModel } from '../models/race.model';
+import { RaceService } from '../race.service';
+
 
 @Component({
   selector: 'pr-races',
   templateUrl: './races.component.html',
   styleUrls: ['./races.component.css']
 })
+@Injectable()
 export class RacesComponent implements OnInit {
   public races: Array<RaceModel>;
 
+  private raceService: RaceService;
 
 
-  constructor() { }
+  constructor(raceService: RaceService) {
+
+    this.raceService = raceService;
+  }
 
   ngOnInit() {
     // Initialize hardcoded values
-    this.races = [
-      { name: 'Lyon' }, {
-        name: 'London'
-      }
-    ];
+    this.races = this.raceService.list();
   }
 
 }
+
