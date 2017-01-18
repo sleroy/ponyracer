@@ -25,8 +25,7 @@ export class RacesComponent implements OnInit {
     // Initialize hardcoded values
     const observableList = this.raceService.list();
     observableList.subscribe(
-       raceList => this.races = raceList,
-       error => console.log(error)
+       raceList => this.races = raceList
        );
   }
 
