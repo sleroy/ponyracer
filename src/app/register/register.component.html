@@ -14,17 +14,34 @@
                 <input id="login" name="login" type="text" placeholder="login" class="form-control input-md" required="true" formControlName="login">
                 <span class="help-block">INserts your damn login</span>
             </div>
-        </div>
-
-        <!-- Password input-->
-        <div class="form-group">
-            <label class="control-label" for="password">Password</label>
-            <div class="">
-                <input id="password" name="password" type="password" placeholder="password" class="form-control input-md" required="true" formControlName="password">
-                <span class="help-block">Password super tough</span>
+            <div id="login-required-error" *ngIf="loginCtrl.hasError('required')">
+                <p class="alert alert-danger">Your login should be required</p>
+            </div>
+            <div id="login-length-error" *ngIf="loginCtrl.hasError('minlength')">
+                <p class="alert alert-danger">Your login should be at least 3 characters</p>
             </div>
         </div>
-
+        <div [formGroup]="passwordForm">
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="control-label" for="password">Password</label>
+                <div class="">
+                    <input id="password" name="password" type="password" placeholder="password" class="form-control input-md" required="true" formControlName="password">
+                    <span class="help-block">Password super tough</span>
+                </div>
+            </div>
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="control-label" for="confirmPassword">Password</label>
+                <div class="">
+                    <input id="confirmPassword" name="confirmPassword" type="password" placeholder="confirmPassword" class="form-control input-md" required="true" formControlName="confirmPassword">
+                    <span class="help-block">Confirm your obvious password</span>
+                </div>
+                <div id="password-match-error" *ngIf="!passwordForm.valid">
+                    <p class="alert alert-danger">Passwords do not match</p>
+                </div>
+            </div>
+        </div>
         <!-- Text input-->
         <div class="form-group">
             <label class="control-label" for="birthYear">Birth year</label>
